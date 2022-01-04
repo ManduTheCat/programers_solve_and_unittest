@@ -1,29 +1,17 @@
 package FirstWeek.HashardNum;
 
-import java.util.ArrayList;
+public class  Solution1{
+		public boolean solution(int x) {
+			Integer num = x;
+			int sum = 0;
+			while (num > 0) {
+				sum += num % 10;
+				num /= 10;
+			}
 
-class Solution1 {
-    public static boolean Solution(int x) {
-
-        boolean answer = false;
-        Integer num = x;
-        ArrayList<Integer> SplitNums = new ArrayList<>();
-        while (num > 0) {
-            SplitNums.add(num % 10);
-            num /= 10;
-        }
-        int sum = 0;
-        for (int number : SplitNums) {
-            sum += number;
-        }
-        if (x % sum == 0) {
-            answer = true;
-        }
-
-        return answer;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(Solution(101));
-    }
+			if (x % sum == 0) {
+				return true;
+			}
+			return false;
+		}
 }
