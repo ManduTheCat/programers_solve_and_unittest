@@ -1,7 +1,7 @@
 package FirstWeek;
 import FirstWeek.HashardNum.*;
 
-class main{
+class Main{
 	public static void main(String[] args) {
 		Solution sol = new Solution();
 		Solution1 sol1 = new Solution1();
