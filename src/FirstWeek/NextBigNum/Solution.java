@@ -12,6 +12,7 @@ class Solution {
 		}
 		return nextCount;
 	}
+
 	public	static int countBin(int n) {
 		int count = 0;
 		while(n > 0){
