@@ -2,7 +2,7 @@ package FirstWeek.HashardNum;
 
 import java.util.ArrayList;
 
-public class Solution {
+class Solution {
     public boolean solution(int x) {
 
         boolean answer = false;
