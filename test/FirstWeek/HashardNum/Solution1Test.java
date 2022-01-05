@@ -9,9 +9,9 @@ public class Solution1Test {
     @Test
     public void solution() {
         Solution1 test = new Solution1();
-        assertTrue(test.Solution(10));
-        assertTrue(test.Solution(12));
-        assertFalse(test.Solution(11));
-        assertFalse(test.Solution(13));
+        assertTrue(test.solution(10));
+        assertTrue(test.solution(12));
+        assertFalse(test.solution(11));
+        assertFalse(test.solution(13));
     }
 }
