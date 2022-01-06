@@ -4,8 +4,9 @@ package FirstWeek.NextBigNum;
 public class Solution1 {
 	public int solution(int n){
 		int res = 0;
+		int count = countBin(n);
 		for(int i = n + 1; i < 1000001; i++){
-			if(countBin(i) == countBin(n)){
+			if(countBin(i) == count){
 				res = i;
 				break;
 			}
