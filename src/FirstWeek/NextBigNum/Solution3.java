@@ -1,5 +1,4 @@
 package FirstWeek.NextBigNum;
-// 시간 초과 ㅜㅜii
 class Solution3 {
     public int solution(int n){
         int res = 0;
@@ -12,7 +11,7 @@ class Solution3 {
         }
         return res;
     }
-    // 이진으로 처리 거꾸로 비트가 조회되게
+    //최하위 비트만 check
     private int countBin(int n) {
         int count = 0;
 
