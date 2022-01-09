@@ -10,11 +10,11 @@ class Main {
 		}
 
 		System.out.println();
-		for(int i : test.solution(input3)){
+		for(int i : test.solution(input2)){
 			System.out.print(i);
 		}
 		System.out.println();
-		for(int i : test.solution(input2)){
+		for(int i : test.solution(input3)){
 			System.out.print(i);
 		}
 	}
