@@ -8,5 +8,12 @@ public class Main {
         System.out.println(test.solution("()()"));
         System.out.println(test.solution(")()("));
         System.out.println(test.solution("(()("));
+
+        Solution1 test1 = new Solution1();
+        System.out.println(test1.solution("(()))"));
+        System.out.println(test1.solution("(())()"));
+        System.out.println(test1.solution("()()"));
+        System.out.println(test1.solution(")()("));
+        System.out.println(test1.solution("(()("));
     }
 }
