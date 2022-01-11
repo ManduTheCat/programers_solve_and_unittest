@@ -17,5 +17,11 @@ class Main {
 		for(int i : test.solution(input3)){
 			System.out.print(i);
 		}
+		System.out.println("\n");
+
+	FirstWeek.mockExam.Solution1 test1 = new FirstWeek.mockExam.Solution1();
+		test1.solution(input1);
+		test1.solution(input2);
+		test1.solution(input3);
 	}
 }

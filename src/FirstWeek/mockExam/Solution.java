@@ -3,7 +3,6 @@ package FirstWeek.mockExam;
 import java.util.ArrayList;
 
 public class Solution {
-
     public int[] solution(int[] answers) {
         int[] p1 = {1, 2, 3, 4, 5};
         int[] p2 = {2, 1, 2, 3, 2, 4, 2, 5};
