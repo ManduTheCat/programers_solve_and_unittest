@@ -1,6 +1,9 @@
 package FirstWeek.visitLength;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Objects;
+
 public class Solution {
 
 	public static class Pair<T, S>{
@@ -13,48 +16,39 @@ public class Solution {
 			this.i= first;
 			this.j = second;
 		}
+	}
+
+	public static class Path{
+		private int curI;
+		private int curJ;
+		private int nI;
+		private int nJ;
+		public int[] res;
+
+		public Path(Pair<Integer, Integer> cur, Pair<Integer, Integer> next){
+			this.curI = cur.i;
+			this.curJ = cur.j;
+			this.nI = next.i;
+			this.nJ = next.j;
+			this.res = new int[]{this.curI, this.curJ, this.nI, this.nJ};
+		}
+
 
 		@Override
 		public boolean equals(Object o) {
 			if (this == o) return true;
 			if (o == null || getClass() != o.getClass()) return false;
-			Pair<?, ?> other = (Pair<?, ?>) o;
-			return	other.i == i && other.j == j;
+			Path path = (Path) o;
+			return curI == path.curI && curJ == path.curJ && nI == path.nI && nJ == path.nJ && Arrays.equals(res, path.res);
 		}
 
 		@Override
 		public int hashCode() {
-			return Objects.hash(i, j);
-		}
-	}
-
-	public class Path{
-		private int curI;
-		private int curJ;
-		private int nI;
-		private int nJ;
-
-		public int[] Path(Pair<Integer, Integer> cur, Pair<Integer, Integer> next){
-			this.curI = cur.i;
-			this.curJ = cur.j;
-			this.nI = next.i;
-			this.nJ = next.j;
-			int[] res = {this.curI, this.curJ, this.nI, this.nJ};
-			return res;
-		}
-
-		public int[] set(Pair<Integer, Integer> cur, Pair<Integer, Integer> next){
-			this.curI = cur.i;
-			this.curJ = cur.j;
-			this.nI = next.i;
-			this.nJ = next.j;
-			int[] res = {this.curI, this.curJ, this.nI, this.nJ};
-			return res;
+			return Objects.hash(curI, curJ, nI, nJ);
 		}
 	}
 
 	public int solution(String dirs) {
-		HashMap<Pair<Pair<Integer, Integer>, Pair<Integer, Integer>>, Boolean> pathCheck = new HashMap<>();
 		HashMap<Character, Integer> command = new HashMap<>();
 		command.put('U', 0);
 		command.put('D', 1);
@@ -62,35 +56,37 @@ public class Solution {
 		command.put('L', 3);
 		Pair<Integer, Integer> point = new Pair<>();
 		Pair<Integer , Integer> nextPoint;
-		Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> go = new Pair<>();
-		Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> back = new Pair<>();
-		HashMap<Path, Boolean> testPathCheck = new HashMap<>();
+		HashMap<Path, Boolean> pathCheck = new HashMap<>();
 
+		point.set(5,5);
+		for(int i = 0; i < dirs.length(); i++){
+			int idx = command.get(dirs.charAt(i));
+			nextPoint = move(idx, point);
+			Path go = new Path(point, nextPoint);
+			Path back = new Path(nextPoint, point);
+			//양뱡향 넣기
+			pathCheck.put(go, false);
+			pathCheck.put(back , false);
+			// point 갱신
+			point = nextPoint;
+		}
 		point.set(5,5);
 		int res = 0;
 		for(int i = 0; i < dirs.length(); i++){
 			int idx = command.get(dirs.charAt(i));
 			nextPoint = move(idx, point);
-			go.set(point, nextPoint);
-			back.set(nextPoint, point);
-//			양뱡향 넣기
-			if(!(pathCheck).containsKey(go)){
-				pathCheck.put(go, false);
+			Path go = new Path(point, nextPoint);
+			Path back = new Path(nextPoint, point);
+			if(!pathCheck.get(go) && !pathCheck.get(back)){
+				pathCheck.put(go, true);
+				pathCheck.put(back,true);
+				res++;
+				if((go.curI == back.curI) && (go.curJ == back.curJ) && (go.nI == back.nI) && (go.nJ == back.nJ)) {
+					res--;
+				}
 			}
-			if(!pathCheck.containsKey(back)){
-				pathCheck.put(back, false);
-			}
-			// point 갱신
 			point = nextPoint;
 		}
-		Pair<Pair<Integer, Integer>, Pair<Integer, Integer>> temp = new Pair<>();
-		Pair<Integer, Integer> temp1 = new Pair<>();
-		Pair<Integer , Integer> temp2 = new Pair<>();
-		temp1.set(5,5);
-		temp2.set(4,5);
-		temp.set(temp1, temp2);
-		System.out.println(pathCheck.get(temp));
-
 		return res;
 	}
 	Pair<Integer, Integer> move(int idx, Pair<Integer, Integer> point){
