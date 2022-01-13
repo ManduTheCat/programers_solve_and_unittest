@@ -30,6 +30,7 @@ public class Solution {
 			this.nJ = next.j;
 		}
 
+
 		@Override
 		public boolean equals(Object o) {
 			if (this == o) return true;
@@ -64,6 +65,7 @@ public class Solution {
 			// 가는 경로 오는 경로 false로 초기화
 			pathCheck.put(go, false);
 			pathCheck.put(back , false);
+			// point 갱신
 			point = nextPoint;
 		}
 

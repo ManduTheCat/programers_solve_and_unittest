@@ -2,15 +2,15 @@ package FirstWeek.NextBigNum;
 
 public class Solution2 {
     public int solution(int n){
-        int res = 0;
+        int countPath = 0;
         int count = countBin(n);
         for(int i = n + 1; i < 1000001; i++){
             if(countBin(i) == count){
-                res = i;
+                countPath = i;
                 break;
             }
         }
-        return res;
+        return countPath;
     }
     // 이진으로 처리 거꾸로 비트가 조회되게
     private int countBin(int n) {

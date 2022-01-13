@@ -38,13 +38,13 @@ public class Solution1 {
 }
 
 	private int[] findSameIndex(int max, int[] countArr) {
-		ArrayList<Integer> res = new ArrayList<>();
+		ArrayList<Integer> countPath = new ArrayList<>();
 		for (int i = 0; i < countArr.length; i++) {
 			if (max == countArr[i]) {
-				res.add(i);
+				countPath.add(i);
 			}
 		}
-		return res.stream().mapToInt(i -> i + 1).toArray();
+		return countPath.stream().mapToInt(i -> i + 1).toArray();
 	}
 }
 class noMathPeople{
