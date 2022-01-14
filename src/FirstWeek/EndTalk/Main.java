@@ -18,7 +18,7 @@ public class Main {
 		int [] res = new int[]{1, 3};
 
 		test.solution(n1 , w1);
-		test.solution(n2 , w2);
+//		test.solution(n2 , w2);
 		test.solution(n3 , w3);
 	}
 }
