@@ -5,7 +5,8 @@ public class Main {
 		Solution test = new Solution();
 		int [] input1 = {1, 2, 3, 9, 10, 12};
 		int k1 = 7;
-		test.solution(input1, k1);
+		System.out.println(test.solution(input1, k1));
+
 	}
 
 }
