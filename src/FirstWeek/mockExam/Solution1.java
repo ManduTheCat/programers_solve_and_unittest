@@ -14,6 +14,7 @@ public class Solution1 {
 	add 를 만들려다가 add 를 안쓰게 되어서 그냥 add 만 만듦
 	생성자도 고민해봤는 solution 내 add 를 안쓰게 될거 같아서 안만듦
 함*/
+	// 학생객체  추가해보자
 	public int[] solution(int[] answers) {
 		int[] p1 = {1, 2, 3, 4, 5};
 		int[] p2 = {2, 1, 2, 3, 2, 4, 2, 5};
