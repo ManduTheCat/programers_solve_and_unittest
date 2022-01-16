@@ -19,7 +19,7 @@ class Main {
 		}
 		System.out.println("\n");
 
-	FirstWeek.mockExam.Solution1 test1 = new FirstWeek.mockExam.Solution1();
+	FirstWeek.mockExam.Solution2 test1 = new Solution2();
 		test1.solution(input1);
 		test1.solution(input2);
 		test1.solution(input3);

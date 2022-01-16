@@ -3,7 +3,7 @@ package FirstWeek.mockExam;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Solution1 {
+public class Solution2 {
 	/*
 	 학생이늘어날때 를 생각해서 찍기배열을 추가 할 수 있게 한다.
 	 생성자로 만들지 그냥 Arraylist로 만들지 어떤게 더 좋을지 고민해보자
@@ -19,10 +19,13 @@ public class Solution1 {
 		int[] p1 = {1, 2, 3, 4, 5};
 		int[] p2 = {2, 1, 2, 3, 2, 4, 2, 5};
 		int[] p3 = {3, 3, 1, 1, 2, 2, 4, 4, 5, 5};
-		NoMathPeople nmp = new NoMathPeople();
-		nmp.addPattern(p1);
-		nmp.addPattern(p2);
-		nmp.addPattern(p3);
+		NoMathPeople1 nmp = new NoMathPeople1();
+		Student s1 = new Student(1, p1);
+		Student s2 = new Student(2, p2);
+		Student s3 = new Student(3, p3);
+		nmp.addPattern(s1.pattern);
+		nmp.addPattern(s2.pattern);
+		nmp.addPattern(s3.pattern);
 
 		for(int i = 0; i < nmp.peoplePatterns.size(); i++){
 			for(int j = 0; j < answers.length; j++){
@@ -37,7 +40,7 @@ public class Solution1 {
 		int [] countArr = nmp.counts.stream().mapToInt(i->i).toArray();
 		return findSameIndex(max, countArr);
 
-}
+	}
 
 	private int[] findSameIndex(int max, int[] countArr) {
 		ArrayList<Integer> countPath = new ArrayList<>();
@@ -49,12 +52,22 @@ public class Solution1 {
 		return countPath.stream().mapToInt(i -> i + 1).toArray();
 	}
 }
-class NoMathPeople{
+class NoMathPeople1{
 	ArrayList<Integer[]> peoplePatterns = new ArrayList<>();
 	ArrayList<Integer> counts = new ArrayList<>();
 
 	public void addPattern(int[] pattern){
 		peoplePatterns.add(Arrays.stream(pattern).boxed().toArray(Integer[]::new));
 		counts.add(0);
+	}
+}
+//	학생 한 명 한 명을 클래스로 만들어서 처리해 보면 어떨까요?
+//	Student 클래스를 도입해 봅시다.
+class Student{
+	int id;
+	int [] pattern;
+	public Student(int id, int[] pattern){
+		this.id = id;
+		this.pattern = pattern;
 	}
 }
