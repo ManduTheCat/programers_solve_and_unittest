@@ -20,9 +20,9 @@ public class Solution2 {
 		int[] p2 = {2, 1, 2, 3, 2, 4, 2, 5};
 		int[] p3 = {3, 3, 1, 1, 2, 2, 4, 4, 5, 5};
 		NoMathPeople1 nmp = new NoMathPeople1();
-		Student s1 = new Student(1, p1);
-		Student s2 = new Student(2, p2);
-		Student s3 = new Student(3, p3);
+		Student s1 = new Student( p1);
+		Student s2 = new Student( p2);
+		Student s3 = new Student( p3);
 		nmp.addPattern(s1.pattern);
 		nmp.addPattern(s2.pattern);
 		nmp.addPattern(s3.pattern);
@@ -64,10 +64,8 @@ class NoMathPeople1{
 //	학생 한 명 한 명을 클래스로 만들어서 처리해 보면 어떨까요?
 //	Student 클래스를 도입해 봅시다.
 class Student{
-	int id;
 	int [] pattern;
-	public Student(int id, int[] pattern){
-		this.id = id;
+	public Student(int[] pattern){
 		this.pattern = pattern;
 	}
 }
