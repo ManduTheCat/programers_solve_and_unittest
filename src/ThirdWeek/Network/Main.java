@@ -2,7 +2,7 @@ package ThirdWeek.Network;
 
 public class Main {
 	public static void main(String[] args) {
-		Solution1 test = new Solution1();
+		SolutionBFS test = new SolutionBFS();
 		int [][] input1 = {{1, 1, 0}, {1, 1, 0}, {0, 0, 1}};
 		int n1 = 3;
 		int [][] input2 = {{1, 1, 0}, {1, 1, 1}, {0, 1, 1}};
