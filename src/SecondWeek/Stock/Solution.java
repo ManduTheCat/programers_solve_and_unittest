@@ -16,8 +16,7 @@ public class Solution {
 			}
 			ansList.add(count);
 		}
-		int[] ans  = ansList.stream().mapToInt(i->i).toArray();
-//		System.out.println(Arrays.toString(ans));
-		return ans;
+		//		System.out.println(Arrays.toString(ans));
+		return ansList.stream().mapToInt(i->i).toArray();
 	}
 }
