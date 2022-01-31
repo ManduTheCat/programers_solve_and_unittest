@@ -10,7 +10,7 @@ public class Solution {
 		Queue<Integer> p = new LinkedList<>();
 		Queue<Integer> s = new LinkedList<>();
 		HashMap<Integer, Integer> count = new HashMap<>();
-
+		// 다음 작업이 더빨리 끝난다면? 이코드는?
 		for(var input: progresses){
 			p.offer(input);
 		}
