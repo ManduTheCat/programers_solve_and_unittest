@@ -1,22 +1,23 @@
 package FourthWeek.TargeNum;
 
-import java.util.Arrays;
-import java.util.ArrayList;
 
 public class Solution {
 
 	public int solution(int[] numbers, int target) {
-	// 모든 수는 연산을 무조건 해야한다 dfs?
-		ArrayList<ArrayList<Integer>> numSum = new ArrayList<>();
-		int [][] numbersArr = new int[numbers.length][2];
-		for(int i = 0; i < numbers.length; i++){
-			numbersArr[i][0] = numbers[i];
-			numbersArr[i][1] = numbers[i] * -1;
+		return dfs(numbers, 0, 0, target);
+	}
+
+	private int dfs (int []numbers, int index, int sum, int target){
+		// 끝에 도달하면 검사하고 다시 리턴한다.
+		if(index == numbers.length){
+			if(target == sum){
+				return 1;
+			}
+			return 0;
 		}
-		// 초기값 지정 해야한다.
-
-
-		return 0;
+		// 두개로 갈린다
+		return dfs(numbers, index +1, sum + numbers[index], target)
+				+ dfs(numbers, index +1, sum - numbers[index], target);
 	}
 }
 
