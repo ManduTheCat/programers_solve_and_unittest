@@ -1,46 +1,42 @@
 package SecondWeek.Develop;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.Queue;
-import java.util.HashMap;
-
+import java.util.LinkedList;
 public class Solution {
 	public int[] solution(int[] progresses, int[] speeds) {
-		Queue<Integer> p = new LinkedList<>();
-		Queue<Integer> s = new LinkedList<>();
-		HashMap<Integer, Integer> count = new HashMap<>();
-		// 다음 작업이 더빨리 끝난다면? 이코드는?
-		for(var input: progresses){
-			p.offer(input);
-		}
-		for(var input : speeds){
-			s.offer(input);
-		}
+		Queue<Integer> deployDays = new LinkedList<>();
 
-		int days = 0;
-		while(!p.isEmpty()){
-
-			int curP = p.poll();
-			int curS = s.poll();
-			while(curP + (days * curS) < 100){
-				curP += days * curS;
+		for(int i = 0; i < progresses.length; i++){
+			int days = 0;
+			while(progresses[i] + (speeds[i] * days) <100) {
 				days++;
 			}
+			deployDays.offer(days);
+		}
+//		System.out.println(deployDays);
+		ArrayList<Integer> ansArrList = new ArrayList<>();
 
-			if(count.containsKey(days)){
-				count.put(days, count.get(days)+1);
+		int count = 1;
+		int curDay = deployDays.poll();
+		while(!deployDays.isEmpty()){
+			if(curDay >= deployDays.peek()){
+				count++;
+
 			}
 			else{
-				count.put(days, 1);
+				ansArrList.add(count);
+				count = 1;
+				curDay = deployDays.peek();
 			}
-		}
-//		System.out.println(count);
-		ArrayList<Integer> ans = new ArrayList<>();
-			for (var key : count.keySet()) {
-				ans.add(count.get(key));
+			deployDays.poll();
+			if(deployDays.isEmpty()){
+				ansArrList.add(count);
 			}
 
-		return ans.stream().mapToInt(i -> i).toArray();
+		}
+
+		return ansArrList.stream().mapToInt(i ->i).toArray();
 	}
+
 }
